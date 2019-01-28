@@ -1,4 +1,3 @@
-
 /*
  * Copyright (C) 2018 Vlad Zagorodniy <vladzzag@gmail.com>
  *
@@ -15,7 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-
+ // Forked by yagomont aka yagoply
 // own
 #include "Decoration.h"
 #include "BoxShadowHelper.h"
@@ -40,7 +39,7 @@ namespace
 struct ShadowParams
 {
     ShadowParams() = default;
-
+// Leave untouched.
     ShadowParams(const QPoint &offset, int radius, qreal opacity)
         : offset(offset)
         , radius(radius)
@@ -68,6 +67,13 @@ struct CompositeShadowParams
     ShadowParams shadow2;
 };
 
+// Configuration of the main shadow. 
+// Draw the same shadow size and shape as breeze medium:
+  //  const CompositeShadowParams s_shadowParams = CompositeShadowParams(
+  //  QPoint(0, 8),
+  //  ShadowParams(QPoint(0, 0), 32, 0.7),
+  //  ShadowParams(QPoint(0, -5), 14, 0.12)
+  //);
 const CompositeShadowParams s_shadowParams = CompositeShadowParams(
     QPoint(0, 8),
     ShadowParams(QPoint(0, 0), 32, 0.7),
@@ -77,9 +83,11 @@ const CompositeShadowParams s_shadowParams = CompositeShadowParams(
 } // anonymous namespace
 
 static int s_decoCount = 0;
+// Change shadow color, pitch black is the default because lighter shadows look whitish in dark situations.
 static QColor s_shadowColor(0, 0, 0);
 static QSharedPointer<KDecoration2::DecorationShadow> s_cachedShadow;
-
+// Change titlebar opacity. 0.635 is default for use with Fluent-Kvantum. Also try 0.7 and 0.8.
+// Try 1.0 here if you prefer opaque. Color is still applied.
 static qreal s_titleBarOpacityActive = 0.635;
 static qreal s_titleBarOpacityInactive = 0.635;
 
@@ -278,6 +286,7 @@ int Decoration::titleBarHeight() const
 {
     const QFontMetrics fontMetrics(settings()->font());
     const int baseUnit = settings()->gridUnit();
+    // Set title bar height multiplier. 1.3 is the default.
     return qRound(1.3 * baseUnit) + fontMetrics.height();
 }
 
@@ -373,9 +382,9 @@ void Decoration::paintCaption(QPainter *painter, const QRect &repaintRegion) con
         decoratedClient->caption(), Qt::ElideMiddle, captionRect.width());
 
     painter->save();
-  QFont RecommendedFont("San Francisco Display", 12, 0);
-//  QFont::setWeight(0);
-    painter->setFont(RecommendedFont);
+  //QFont RecommendedFont("San Francisco Display", 12, 0);
+    //painter->setFont(RecommendedFont);
+    painter->setFont(settings()->font());
     painter->setPen(titleBarForegroundColor());
     painter->drawText(captionRect, alignment, caption);
     painter->restore();
