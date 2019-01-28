@@ -16,12 +16,11 @@ If you so choose to use the theme above, place [this color scheme](https://githu
 * other KDE Framework 5 headers; see the output of ´make´
 * cmake
 
-##### Building from source
+##### Building and installing
 
 ```
-mkdir build
-cd build
+git clone https://github.com/yagomont/material-decoration-bt.git
+cd material-decoration-bt/build
 cmake -DCMAKE_INSTALL_PREFIX=/usr ..
-make
-sudo make install
+sudo make -j4 install
 ```
