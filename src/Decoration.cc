@@ -1,3 +1,4 @@
+
 /*
  * Copyright (C) 2018 Vlad Zagorodniy <vladzzag@gmail.com>
  *
@@ -30,7 +31,6 @@
 // Qt
 #include <QPainter>
 #include <QSharedPointer>
-
 namespace Material
 {
 
@@ -48,8 +48,8 @@ struct ShadowParams
 
     QPoint offset;
     int radius = 0;
-    qreal opacity = 0;
-};
+    qreal opacity = 1.0;
+}; 
 
 struct CompositeShadowParams
 {
@@ -69,19 +69,19 @@ struct CompositeShadowParams
 };
 
 const CompositeShadowParams s_shadowParams = CompositeShadowParams(
-    QPoint(0, 18),
-    ShadowParams(QPoint(0, 0), 64, 0.8),
-    ShadowParams(QPoint(0, -10), 24, 0.1)
+    QPoint(0, 8),
+    ShadowParams(QPoint(0, 0), 32, 0.7),
+    ShadowParams(QPoint(0, -5), 14, 0.12)
 );
 
 } // anonymous namespace
 
 static int s_decoCount = 0;
-static QColor s_shadowColor(33, 33, 33);
+static QColor s_shadowColor(0, 0, 0);
 static QSharedPointer<KDecoration2::DecorationShadow> s_cachedShadow;
 
-static qreal s_titleBarOpacityActive = 0.9;
-static qreal s_titleBarOpacityInactive = 1.0;
+static qreal s_titleBarOpacityActive = 0.635;
+static qreal s_titleBarOpacityInactive = 0.635;
 
 Decoration::Decoration(QObject *parent, const QVariantList &args)
     : KDecoration2::Decoration(parent, args)
@@ -220,7 +220,7 @@ void Decoration::updateShadow()
     auto withOpacity = [] (const QColor &color, qreal opacity) -> QColor {
         QColor c(color);
         c.setAlphaF(opacity);
-        return c;
+       return c;
     };
 
     // In order to properly render a box shadow with a given radius `shadowSize`,
@@ -278,7 +278,7 @@ int Decoration::titleBarHeight() const
 {
     const QFontMetrics fontMetrics(settings()->font());
     const int baseUnit = settings()->gridUnit();
-    return qRound(1.5 * baseUnit) + fontMetrics.height();
+    return qRound(1.3 * baseUnit) + fontMetrics.height();
 }
 
 void Decoration::paintFrameBackground(QPainter *painter, const QRect &repaintRegion) const
@@ -373,7 +373,9 @@ void Decoration::paintCaption(QPainter *painter, const QRect &repaintRegion) con
         decoratedClient->caption(), Qt::ElideMiddle, captionRect.width());
 
     painter->save();
-    painter->setFont(settings()->font());
+  QFont RecommendedFont("San Francisco Display", 12, 0);
+//  QFont::setWeight(0);
+    painter->setFont(RecommendedFont);
     painter->setPen(titleBarForegroundColor());
     painter->drawText(captionRect, alignment, caption);
     painter->restore();
