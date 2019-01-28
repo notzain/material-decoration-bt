@@ -13,7 +13,7 @@ If you so choose to use the theme above, place [this color scheme](https://githu
 ##### Prerequisites
 
 * KDecoration2
-* other KDE Framework 5 headers; see the output of ´make´
+* Might need other KDE Framework 5 headers; see the output of ´cmake´
 * cmake
 
 ##### Building and installing
