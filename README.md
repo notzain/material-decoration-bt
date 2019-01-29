@@ -11,7 +11,8 @@ If you so choose to use the theme above, place [this color scheme](https://githu
 ### Features of this fork
 * Consistent shadows with great contrast (from the Breeze theme)
 * 0.635 opacity by default, picked by trial and error to blend in with the themes above
-* Tool to facillitate opacity changing 
+* TODO: Installation script
+* TODO: Settings menu
 
 ### Installation
 
