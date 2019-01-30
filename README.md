@@ -32,7 +32,7 @@ cd material-decoration-bt; bash setup.sh
 Run `bt-opacity`anywhere.
 ## Installing (manual, may not work as desired)
 `
-cd material-decoration-bt/build
-cmake -DCMAKE_INSTALL_PREFIX=/usr ..
+cd material-decoration-bt/build;
+cmake -DCMAKE_INSTALL_PREFIX=/usr .. ;
 sudo make -j4 install
 `
