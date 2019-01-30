@@ -14,8 +14,6 @@ If you so choose to use the theme above, place [this color scheme](https://githu
 * Automated installation
 * Changing opacity via terminal
 
-##### Installation
-
 ## Prerequisites
 
 * KDecoration2
