@@ -8,25 +8,33 @@ Kvantum theme recommended for use with this theme overall: https://github.com/Lu
 
 If you so choose to use the theme above, place [this color scheme](https://github.com/yagomont/warna-mac-kvmd/blob/master/WarnaMac20DarkerKVMD.colors) in ~/.kde/share/apps/color-schemes/ ; it should blend in with Fluent Kvantum if you choose not to use top toolbars.
 
-### Features of this fork
+## Features of this fork
 * Consistent shadows with great contrast (from the Breeze theme)
 * 0.635 opacity by default, picked by trial and error to blend in with the themes above
-* TODO: Installation script
-* TODO: Settings menu
+* Automated installation
+* Changing opacity via terminal
 
-### Installation
+##### Installation
 
-##### Prerequisites
+## Prerequisites
 
 * KDecoration2
 * Might need other KDE Framework 5 headers; see the output of ´cmake´
 * cmake
 
-##### Building and installing
-
-```
+## Downloading
+`
 git clone https://github.com/yagomont/material-decoration-bt.git
+`
+## Installing
+`
+cd material-decoration-bt; bash setup.sh
+`
+## Changing opacity at runtime
+Run `bt-opacity`anywhere.
+## Installing (manual, may not work as desired)
+`
 cd material-decoration-bt/build
 cmake -DCMAKE_INSTALL_PREFIX=/usr ..
 sudo make -j4 install
-```
+`
