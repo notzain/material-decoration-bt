@@ -20,6 +20,8 @@ If you so choose to use the theme above, place [this color scheme](https://githu
 * Might need other KDE Framework 5 headers; see the output of ´cmake´
 * cmake
 
+In Ubuntu, you may satisfy these with `sudo apt install cmake build-essential extra-cmake-modules qtbase5-dev libkdecorations2-dev `
+
 ## Downloading
 `
 git clone https://github.com/yagomont/material-decoration-bt.git
