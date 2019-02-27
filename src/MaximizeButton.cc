@@ -104,17 +104,11 @@ QColor MaximizeButton::backgroundColor() const
     }
 
     if (isPressed()) {
-        return KColorUtils::mix(
-            deco->titleBarBackgroundColor(),
-            deco->titleBarForegroundColor(),
-            0.3);
+        return QColor(0,0,0, 255 * 0.3);
     }
 
     if (isHovered()) {
-        return KColorUtils::mix(
-            deco->titleBarBackgroundColor(),
-            deco->titleBarForegroundColor(),
-            0.2);
+        return QColor(0,0,0, 255 * 0.2);
     }
 
     return Qt::transparent;
