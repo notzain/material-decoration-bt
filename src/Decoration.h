@@ -31,6 +31,8 @@ class CloseButton;
 class MaximizeButton;
 class MinimizeButton;
 class KeepAboveButton;
+class ApplicationMenuButton;
+
 
 class Decoration : public KDecoration2::Decoration
 {
@@ -69,6 +71,8 @@ private:
     friend class MaximizeButton;
     friend class MinimizeButton;
     friend class KeepAboveButton;
+    friend class ApplicationMenuButton;
+
 };
 
 } // namespace Material

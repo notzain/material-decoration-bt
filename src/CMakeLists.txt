@@ -19,6 +19,7 @@ set (decoration_SRCS
     MaximizeButton.cc
     MinimizeButton.cc
     KeepAboveButton.cc
+    ApplicationMenuButton.cc
     plugin.cc
 )
 
