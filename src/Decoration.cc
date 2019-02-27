@@ -21,6 +21,7 @@
 #include "CloseButton.h"
 #include "MaximizeButton.h"
 #include "MinimizeButton.h"
+#include "KeepAboveButton.h"
 
 // KDecoration
 #include <KDecoration2/DecoratedClient>
@@ -154,6 +155,9 @@ void Decoration::init()
 
         case KDecoration2::DecorationButtonType::Minimize:
             return new MinimizeButton(this, parent);
+        
+        case KDecoration2::DecorationButtonType::KeepAbove:
+            return new KeepAboveButton(this, parent);
 
         default:
             return nullptr;

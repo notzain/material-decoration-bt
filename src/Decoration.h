@@ -30,6 +30,7 @@ namespace Material
 class CloseButton;
 class MaximizeButton;
 class MinimizeButton;
+class KeepAboveButton;
 
 class Decoration : public KDecoration2::Decoration
 {
@@ -67,6 +68,7 @@ private:
     friend class CloseButton;
     friend class MaximizeButton;
     friend class MinimizeButton;
+    friend class KeepAboveButton;
 };
 
 } // namespace Material
