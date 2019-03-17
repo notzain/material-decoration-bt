@@ -90,8 +90,8 @@ static QColor s_shadowColor(0, 0, 0);
 static QSharedPointer<KDecoration2::DecorationShadow> s_cachedShadow;
 // Change titlebar opacity. 0.635 is default for use with Fluent-Kvantum. Also try 0.7 and 0.8.
 // Try 1.0 here if you prefer opaque. Color is still applied.
-static qreal s_titleBarOpacityActive = 0.635;
-static qreal s_titleBarOpacityInactive = 0.635;
+static qreal s_titleBarOpacityActive = 0.9;
+static qreal s_titleBarOpacityInactive = 0.9;
 
 Decoration::Decoration(QObject *parent, const QVariantList &args)
     : KDecoration2::Decoration(parent, args)
@@ -353,6 +353,22 @@ void Decoration::paintTitleBarBackground(QPainter *painter, const QRect &repaint
     painter->setPen(Qt::NoPen);
     painter->setBrush(titleBarBackgroundColor());
     painter->drawRect(QRect(0, 0, decoratedClient->width(), titleBarHeight()));
+
+    // draw inner border
+
+    //top
+    painter->setBrush(QColor(0, 0, 0, 255 * 0.8));
+    painter->drawRect(QRect(0, 0, decoratedClient->width(), 1));
+
+    // highlight
+    painter->setBrush(QColor(255, 255, 255, 255 * 0.2));
+    painter->drawRect(QRect(0, 1, decoratedClient->width(), 1));
+
+    //left & right shadow
+    painter->setBrush(QColor(0, 0, 0, 255 * 0.8));
+    painter->drawRect(QRect(0, 0, 1, titleBarHeight()));
+    painter->drawRect(QRect(decoratedClient->width() - 1, 0, 1, titleBarHeight()));
+
     painter->restore();
 }
 

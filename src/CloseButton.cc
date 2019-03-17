@@ -85,18 +85,25 @@ QColor CloseButton::backgroundColor() const
 
     if (isPressed()) {
         auto *decoratedClient = deco->client().data();
-        return decoratedClient->color(
+        auto color =  decoratedClient->color(
             KDecoration2::ColorGroup::Warning,
             KDecoration2::ColorRole::Foreground
         ).lighter();
+
+        color.setAlpha(255*0.7);
+        return color;
     }
 
     if (isHovered()) {
         auto *decoratedClient = deco->client().data();
-        return decoratedClient->color(
+        auto color = decoratedClient->color(
             KDecoration2::ColorGroup::Warning,
             KDecoration2::ColorRole::Foreground
         );
+
+        color.setAlpha(255*0.7);
+        return color;
+
     }
 
     return Qt::transparent;
