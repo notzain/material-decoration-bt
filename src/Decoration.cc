@@ -78,8 +78,8 @@ struct CompositeShadowParams
   //);
 const CompositeShadowParams s_shadowParams = CompositeShadowParams(
     QPoint(0, 8),
-    ShadowParams(QPoint(0, 0), 32, 0.7),
-    ShadowParams(QPoint(0, -5), 14, 0.12)
+    ShadowParams(QPoint(0, 0), 32 * 2, 0.7),
+    ShadowParams(QPoint(0, -5), 14 * 2, 0.12)
 );
 
 } // anonymous namespace

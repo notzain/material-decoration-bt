@@ -101,7 +101,7 @@ QColor CloseButton::backgroundColor() const
             KDecoration2::ColorRole::Foreground
         );
 
-        color.setAlpha(255*0.7);
+        color.setAlpha(255*0.8);
         return color;
 
     }

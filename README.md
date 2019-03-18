@@ -8,11 +8,6 @@ Kvantum theme recommended for use with this theme overall: https://github.com/Lu
 
 If you so choose to use the theme above, place [this color scheme](https://github.com/yagomont/warna-mac-kvmd/blob/master/WarnaMac20DarkerKVMD.colors) in ~/.kde/share/apps/color-schemes/ ; it should blend in with Fluent Kvantum if you choose not to use top toolbars.
 
-## Features of this fork
-* Consistent shadows with great contrast (from the Breeze theme)
-* 0.635 opacity by default, picked by trial and error to blend in with the themes above
-* Automated installation
-* Changing opacity via terminal
 
 ## Prerequisites
 
